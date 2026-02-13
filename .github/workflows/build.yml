@@ -1,10 +1,14 @@
 name: Build RSS
 
 on:
-  push:
-    paths:
-      - feeds.txt
-      - progress.json
+#  push:
+#    paths:
+#      - feeds.txt
+#      - progress.json
+#  workflow_dispatch:
+
+  schedule:
+    - cron: "*/20 * * * *"
   workflow_dispatch:
 
 permissions:
