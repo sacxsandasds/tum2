@@ -1,0 +1,34 @@
+name: Build RSS
+
+on:
+  push:
+    paths:
+      - feeds.txt
+      - progress.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - run: pip install requests beautifulsoup4
+
+      - run: python scripts/build_rss.py
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add output progress.json
+          git commit -m "update feeds" || echo "no changes"
+          git push
