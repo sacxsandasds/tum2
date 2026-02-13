@@ -6,9 +6,8 @@ on:
 #      - feeds.txt
 #      - progress.json
 #  workflow_dispatch:
-
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
