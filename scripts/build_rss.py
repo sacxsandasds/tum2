@@ -12,7 +12,7 @@ INPUT = "feeds.txt"
 PROGRESS = "progress.json"
 OUTDIR = "output"
 
-CHUNK = 250          # how many per run
+CHUNK = 500          # how many per run
 DELAY = 1.5          # seconds between requests
 RETRIES = 3
 
